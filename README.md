@@ -97,12 +97,11 @@ These should likely be ansible plays one day.
 ### etc/cluster.cfg
 
 This is a list of VMs to create and their details.  
-**Currently only one VM name and static IP, separated by a comma, per line.**  
 **Note: you must make sure [dns](https://github.com/aussielunix/homelab/blob/master/ansible/files/etc_hosts) is setup for each host in the cluster**
 
 ```
-worker01,192.168.20.21
-worker02,192.168.20.22
+master01,192.168.20.13,20,4,1
+worker01,192.168.20.21,100,4,1
 ```
 
 ### lib
