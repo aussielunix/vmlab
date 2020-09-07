@@ -48,12 +48,15 @@ EOF
 create_vm() {
   declare NODE="$1"
   declare IPADDRESS="$2"
+  declare DISK="$3"
+  declare RAM="$4"
+  declare CPU="$5"
 
   echo "Creating ${NODE} with static ip ${IPADDRESS}"
 
   create_userdata ${NODE}
   create_network_conf ${NODE} ${IPADDRESS}
-  uvt-kvm create ${NODE} --disk 20 --memory 4096 --cpu 2 --bridge br0 --network-config tmp/${NODE}.netplan --user-data tmp/${NODE}.cfg
+  uvt-kvm create ${NODE} --disk ${DISK} --memory ${RAM} --cpu ${CPU} --bridge br0 --network-config tmp/${NODE}.netplan --user-data tmp/${NODE}.cfg
 }
 
 # Wait for VM to finish
@@ -90,7 +93,7 @@ create_cluster() {
   for VM in $(cat etc/cluster.cfg)
   do
     VMD=(${VM//,/ })
-    create_vm ${VMD[0]} ${VMD[1]}
+    create_vm ${VMD[0]} ${VMD[1]} ${VMD[2]} ${VMD[3]} ${VMD[4]}
   done
   echo
 }
