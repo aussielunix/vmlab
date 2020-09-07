@@ -17,6 +17,7 @@ usage() {
 #
 create_userdata() {
   declare NODE="$1"
+
   echo -e "#cloud-config\nhostname: ${NODE}\nfqdn: ${NODE}.lunix.lan" >> tmp/${NODE}.cfg
   cat lib/templates/user_data.tmpl >> tmp/${NODE}.cfg
 }
@@ -28,6 +29,7 @@ create_userdata() {
 create_network_conf() {
   declare NODE="$1"
   declare IPADDRESS="$2"
+
 cat <<EOF >> tmp/${NODE}.netplan
 version: 2
 ethernets:
@@ -54,7 +56,6 @@ create_vm() {
 
   RAMBYTES=$((RAM*1024))
   echo "Creating ${NODE} with ${DISK}GB of disk, ${RAMBYTES} of RAM, ${CPU} cpu cores and a static ip ${IPADDRESS}"
-
   create_userdata ${NODE}
   create_network_conf ${NODE} ${IPADDRESS}
   uvt-kvm create ${NODE} --disk ${DISK} --memory ${RAMBYTES} --cpu ${CPU} --bridge br0 --network-config tmp/${NODE}.netplan --user-data tmp/${NODE}.cfg
