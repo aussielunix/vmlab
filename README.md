@@ -24,7 +24,11 @@ ansible-playbook virt.yml
 ansible-playbook dns.yml
 ```
 
-Now create a cluster of VMs after declaring the cluster in cluster.cfg.
+Now create a cluster of VMs
+
+* declare the cluster in `etc/cluster.cfg`
+* tune [dns](https://github.com/aussielunix/homelab/blob/master/ansible/files/etc_hosts) to match `etc/cluster.cfg`
+* `cd ansible && ansible-playbook dns.yml`
 
 ```bash
 lunix@nuc01:~/homelab$ bin/cluster up
