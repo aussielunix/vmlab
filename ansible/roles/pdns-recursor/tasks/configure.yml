@@ -1,0 +1,29 @@
+---
+
+- name: Drop in a PowerDNS Recursor configuration
+  copy:
+    src: "recursor.conf"
+    dest: "/etc/powerdns/recursor.conf"
+    mode: 0644
+  register: _pdns_recursor_configuration
+
+- name: Drop in a PowerDNS Recursor configuration - export /etc/hosts
+  copy:
+    src: "10_etc_hosts_export.conf"
+    dest: "/etc/powerdns/recursor.d/10_etc_hosts_export.conf"
+    mode: 0644
+  register: _pdns_recursor_configuration
+
+- name: Drop in a PowerDNS Recursor configuration - listen 0.0.0.0
+  copy:
+    src: "20_bind_all.conf"
+    dest: "/etc/powerdns/recursor.d/20_bind_all.conf"
+    mode: 0644
+  register: _pdns_recursor_configuration
+
+- name: Restart PowerDNS Recursor
+  service:
+    name: pdns-recursor
+    state: restarted
+    sleep: 1
+  when: _pdns_recursor_configuration.changed

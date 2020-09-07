@@ -1,0 +1,17 @@
+---
+
+- include: install.yml
+  tags:
+    - install
+
+- include: configure.yml
+  tags:
+    - config
+
+- name: Set the status of the PowerDNS Recursor service
+  service:
+    name: pdns-recursor
+    state: started
+    enabled: yes
+  tags:
+    - service

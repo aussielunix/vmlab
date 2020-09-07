@@ -1,0 +1,25 @@
+---
+
+- name: Install/Configure libvirt/kvm
+  become: true
+  hosts: localhost
+  connection: local
+  gather_facts: True
+  vars_files:
+    - ../vars/virt.yml
+  roles:
+    - role: stackhpc.libvirt-host
+  tasks:
+    - name: install virt-manager
+      apt:
+        force_apt_get: true
+        name: "{{packages}}"
+      vars:
+        packages:
+          - virt-top
+          - bridge-utils
+          - libguestfs-tools
+          - uvtool
+          - ovmf
+          - virtinst
+          - virt-manager

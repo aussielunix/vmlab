@@ -1,0 +1,29 @@
+---
+
+- name: Setup KVM networking bridge
+  become: true
+  hosts: localhost
+  connection: local
+  gather_facts: True
+  tasks:
+    - name: Create a replacement netplan plan
+      copy:
+        src: "../files/netplan/00-installer-config.yaml"
+        dest: "/etc/netplan/00-installer-config.yaml"
+        mode: 0644
+    - name: apply netplan plan
+      command: netplan apply
+    - name: disable systemd-resolverd
+      systemd:
+        name: systemd-resolved
+        enabled: no
+        state: stopped
+        masked: yes
+    - name: setup static  /etc/resolv.conf
+      copy:
+        src: "../files/resolvconf"
+        dest: "/etc/resolv.conf"
+        mode: 0644
+        owner: root
+        group: root
+        force: true

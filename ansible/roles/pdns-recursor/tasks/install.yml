@@ -1,0 +1,6 @@
+---
+
+- name: Install the PowerDNS Recursor
+  package:
+    name: pdns-recursor
+    state: present

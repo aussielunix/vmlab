@@ -1,0 +1,26 @@
+127.0.0.1 localhost.localdomain localhost
+
+192.168.20.1 gw.lunix.lan gw
+
+192.168.20.10 lb01.lunix.lan lb01
+
+192.168.20.11 master01.lunix.lan master01
+192.168.20.12 master02.lunix.lan master02
+192.168.20.13 master03.lunix.lan master03
+
+192.168.20.21 worker01.lunix.lan worker01
+192.168.20.22 worker02.lunix.lan worker02
+192.168.20.23 worker03.lunix.lan worker03
+192.168.20.24 worker04.lunix.lan worker04
+192.168.20.25 worker05.lunix.lan worker05
+
+192.168.20.250 nuc01.lunix.lan nuc01
+
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+

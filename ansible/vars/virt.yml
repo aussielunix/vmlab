@@ -1,0 +1,9 @@
+---
+
+libvirt_host_pools:
+  - name: default
+    type: dir
+    mode: 700
+    owner: "libvirt-qemu"
+    group: "kvm"
+    path: /var/lib/libvirt/images

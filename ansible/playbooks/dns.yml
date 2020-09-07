@@ -1,0 +1,26 @@
+---
+
+- name: Install/Configure PowerDNS as a recursor
+  become: true
+  hosts: kvm
+  gather_facts: True
+  roles:
+    - role: pdns-recursor
+  tasks:
+    - name: drop in populated /etc/hosts
+      copy:
+        src: "../files/etc_hosts"
+        dest: "/etc/hosts"
+        mode: 0644
+    - name: Restart PowerDNS Recursor
+      service:
+        name: pdns-recursor
+        state: restarted
+    - name: setup static  /etc/resolv.conf
+      copy:
+        src: "../files/resolvconf"
+        dest: "/etc/resolv.conf"
+        mode: 0644
+        owner: root
+        group: root
+        force: true

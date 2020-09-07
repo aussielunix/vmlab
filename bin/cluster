@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Source common vm provisioning functions
+#
+source lib/vm_prov.sh
+
+# Check that a subcomand has been passed
+#
+if [ -z ${1:-} ]
+then
+  usage
+  exit 1
+fi
+
+## Main function of the script
+# This is the scripts entry point
+#
+main() {
+  case "$1" in
+    up)
+      create_cluster
+      ;;
+    down)
+      destroy_cluster
+      ;;
+    *)
+      usage
+      exit 1
+      ;;
+  esac
+}
+
+main "$@"
