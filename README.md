@@ -50,15 +50,22 @@ cd ansible
 ansible-playbook dns.yml
 cd ../
 bin/cluster up
-creating cluster declared in cluster.cfg
+creating cluster declared in etc/cluster.cfg
 
-Creating lb01 with static ip 192.168.20.10
-Creating master01 with static ip 192.168.20.11
-Creating master02 with static ip 192.168.20.12
-Creating master03 with static ip 192.168.20.13
-Creating worker01 with static ip 192.168.20.21
-Creating worker02 with static ip 192.168.20.22
-Creating worker03 with static ip 192.168.20.23
+Creating lb01 with 20GB of disk, 4096 of RAM, 1 cpu cores and a static ip 192.168.20.10
+.......................
+Creating master01 with 20GB of disk, 4096 of RAM, 1 cpu cores and a static ip 192.168.20.11
+..................
+Creating master02 with 20GB of disk, 4096 of RAM, 1 cpu cores and a static ip 192.168.20.12
+................
+Creating master03 with 20GB of disk, 4096 of RAM, 1 cpu cores and a static ip 192.168.20.13
+.................
+Creating worker01 with 100GB of disk, 4096 of RAM, 1 cpu cores and a static ip 192.168.20.21
+...................
+Creating worker02 with 100GB of disk, 4096 of RAM, 1 cpu cores and a static ip 192.168.20.22
+..................
+Creating worker03 with 100GB of disk, 4096 of RAM, 1 cpu cores and a static ip 192.168.20.23
+..................
 ```
 
 You can destroy the whole cluster with a simple command too but be very careful.
