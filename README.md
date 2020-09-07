@@ -23,6 +23,12 @@ ansible-playbook networking.yml
 ansible-playbook virt.yml
 ```
 
+Before you can create any VMs you will need to sync the latest cloud image to your host.  
+This will take some time.
+```bash
+uvt-simplestreams-libvirt sync release=focal arch=amd64
+```
+
 Now create a cluster of VMs
 
 * declare the cluster in `etc/cluster.cfg`
