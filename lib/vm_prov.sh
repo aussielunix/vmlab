@@ -52,11 +52,12 @@ create_vm() {
   declare RAM="$4"
   declare CPU="$5"
 
-  echo "Creating ${NODE} with static ip ${IPADDRESS}"
+  RAMBYTES=$((RAM*1024))
+  echo "Creating ${NODE} with ${DISK}GB of disk, ${RAMBYTES} of RAM, ${CPU} cpu cores and a static ip ${IPADDRESS}"
 
   create_userdata ${NODE}
   create_network_conf ${NODE} ${IPADDRESS}
-  uvt-kvm create ${NODE} --disk ${DISK} --memory ${RAM} --cpu ${CPU} --bridge br0 --network-config tmp/${NODE}.netplan --user-data tmp/${NODE}.cfg
+  uvt-kvm create ${NODE} --disk ${DISK} --memory ${RAMBYTES} --cpu ${CPU} --bridge br0 --network-config tmp/${NODE}.netplan --user-data tmp/${NODE}.cfg
 }
 
 # Wait for VM to finish
@@ -94,6 +95,7 @@ create_cluster() {
   do
     VMD=(${VM//,/ })
     create_vm ${VMD[0]} ${VMD[1]} ${VMD[2]} ${VMD[3]} ${VMD[4]}
+    wait_vm ${VMD[0]}
   done
   echo
 }
