@@ -31,6 +31,7 @@ Now create a cluster of VMs
 ```bash
 cd ansible
 ansible-playbook dns.yml
+cd ../
 bin/cluster up
 creating cluster declared in cluster.cfg
 
