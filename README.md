@@ -59,7 +59,7 @@ A directory with a collection of shell scripts.
 I write bash much quicker than Ansible so this is my go to place for speed of development.  
 These should likely be ansible plays one day.
 
-### cluster.cfg
+### etc/cluster.cfg
 
 This is a list of VMs to create and their details.  
 **Currently only one VM name and static IP, separated by a comma, per line.**  
@@ -72,7 +72,7 @@ worker02,192.168.20.22
 
 ### lib
 
-bash library(s) for creating/destroying VMs using uvtool.
+bash library for creating/destroying VMs using uvtool and template for userdata.
 
 ## Notes
 
