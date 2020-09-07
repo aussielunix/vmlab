@@ -1,4 +1,3 @@
 ---
 
 - src: stackhpc.libvirt-host
-- src: powerdns.pdns_recursor
