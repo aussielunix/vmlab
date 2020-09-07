@@ -32,6 +32,17 @@ uvt-simplestreams-libvirt sync release=focal arch=amd64
 Now create a cluster of VMs
 
 * declare the cluster in `etc/cluster.cfg`
+  `NAME,IP,DISK,RAM,CPU`
+
+```
+lb01,192.168.20.10,20,4,1
+master01,192.168.20.11,20,4,1
+master02,192.168.20.12,20,4,1
+master03,192.168.20.13,20,4,1
+worker01,192.168.20.21,100,4,1
+worker02,192.168.20.22,100,4,1
+worker03,192.168.20.23,100,4,1
+```
 * tune [dns](https://github.com/aussielunix/homelab/blob/master/ansible/files/etc_hosts) to match `etc/cluster.cfg`
 
 ```bash
