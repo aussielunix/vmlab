@@ -21,17 +21,17 @@ This assumes you have an Ubuntu Server LTS (20.04/Focal) install and direct cons
 git clone ...
 ansible-playbook networking.yml
 ansible-playbook virt.yml
-ansible-playbook dns.yml
 ```
 
 Now create a cluster of VMs
 
 * declare the cluster in `etc/cluster.cfg`
 * tune [dns](https://github.com/aussielunix/homelab/blob/master/ansible/files/etc_hosts) to match `etc/cluster.cfg`
-* `cd ansible && ansible-playbook dns.yml`
 
 ```bash
-lunix@nuc01:~/homelab$ bin/cluster up
+cd ansible
+ansible-playbook dns.yml
+bin/cluster up
 creating cluster declared in cluster.cfg
 
 Creating lb01 with static ip 192.168.20.10
@@ -41,6 +41,12 @@ Creating master03 with static ip 192.168.20.13
 Creating worker01 with static ip 192.168.20.21
 Creating worker02 with static ip 192.168.20.22
 Creating worker03 with static ip 192.168.20.23
+```
+
+You can destroy the whole cluster with a simple command too but be very careful.
+
+```bash
+bin/cluster down
 ```
 
 ## Repo Layout
