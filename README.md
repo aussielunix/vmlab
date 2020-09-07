@@ -31,8 +31,7 @@ uvt-simplestreams-libvirt sync release=focal arch=amd64
 
 Now create a cluster of VMs
 
-* declare the cluster in `etc/cluster.cfg`
-  `NAME,IP,DISK,RAM,CPU`
+* declare the cluster in `etc/cluster.cfg` - `NAME,IP,DISK,RAM,CPU`
 
 ```
 lb01,192.168.20.10,20,4,1
