@@ -19,7 +19,7 @@ create_userdata() {
   declare NODE="$1"
 
   echo -e "#cloud-config\nhostname: ${NODE}\nfqdn: ${NODE}.lunix.lan" >> tmp/${NODE}.cfg
-  cat lib/templates/user_data.tmpl >> tmp/${NODE}.cfg
+  cat etc/templates/user_data.tmpl >> tmp/${NODE}.cfg
 }
 
 # generate a static network config ile from template
