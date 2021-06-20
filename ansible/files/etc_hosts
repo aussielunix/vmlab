@@ -2,7 +2,7 @@
 
 192.168.20.1 gw.lunix.lan gw
 
-192.168.20.10 lb01.lunix.lan lb01
+192.168.20.10 nuc01.lunix.lan nuc01
 
 192.168.20.11 master01.lunix.lan master01
 192.168.20.12 master02.lunix.lan master02
@@ -14,7 +14,6 @@
 192.168.20.24 worker04.lunix.lan worker04
 192.168.20.25 worker05.lunix.lan worker05
 
-192.168.20.250 nuc01.lunix.lan nuc01
 
 
 # The following lines are desirable for IPv6 capable hosts

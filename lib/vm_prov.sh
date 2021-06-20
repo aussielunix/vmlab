@@ -39,7 +39,7 @@ ethernets:
      addresses: [ ${IPADDRESS}/24 ]
      gateway4: 192.168.20.1
      nameservers:
-       addresses: [ 192.168.20.250 ]
+       addresses: [ 192.168.20.10 ]
        search: [ lunix.lan ]
 EOF
 }
