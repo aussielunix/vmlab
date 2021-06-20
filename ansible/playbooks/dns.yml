@@ -2,7 +2,8 @@
 
 - name: Install/Configure PowerDNS as a recursor
   become: true
-  hosts: kvm
+  hosts: localhost
+  connection: local
   gather_facts: True
   roles:
     - role: pdns-recursor
@@ -12,6 +13,7 @@
         src: "../files/etc_hosts"
         dest: "/etc/hosts"
         mode: 0644
+        force: yes
     - name: Restart PowerDNS Recursor
       service:
         name: pdns-recursor
