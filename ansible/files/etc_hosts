@@ -2,19 +2,11 @@
 
 192.168.20.1 gw.lunix.lan gw
 
-192.168.20.10 nuc01.lunix.lan nuc01
+192.168.20.10 nuc01.lunix.lan nuc01 ns1.lunix.lan ns1
+192.168.20.11 nuc01.lunix.lan nuc01 ns2.lunix.lan ns2
 
-192.168.20.11 master01.lunix.lan master01
-192.168.20.12 master02.lunix.lan master02
-192.168.20.13 master03.lunix.lan master03
-
-192.168.20.21 worker01.lunix.lan worker01
-192.168.20.22 worker02.lunix.lan worker02
-192.168.20.23 worker03.lunix.lan worker03
-192.168.20.24 worker04.lunix.lan worker04
-192.168.20.25 worker05.lunix.lan worker05
-
-
+192.168.20.20 test-01.lunix.lan test-01
+192.168.20.22 macdev-01.lunix.lan macdev-01
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback

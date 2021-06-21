@@ -39,7 +39,7 @@ ethernets:
      addresses: [ ${IPADDRESS}/24 ]
      gateway4: 192.168.20.1
      nameservers:
-       addresses: [ 192.168.20.10 ]
+       addresses: [ 192.168.20.10, 192.168.20.11 ]
        search: [ lunix.lan ]
 EOF
 }
@@ -58,6 +58,7 @@ create_vm() {
   echo "Creating ${NODE} with ${DISK}GB of disk, ${RAMBYTES} of RAM, ${CPU} cpu cores and a static ip ${IPADDRESS}"
   create_userdata ${NODE}
   create_network_conf ${NODE} ${IPADDRESS}
+  echo "uvt-kvm create ${NODE} --disk ${DISK} --memory ${RAMBYTES} --cpu ${CPU} --bridge br0 --network-config tmp/${NODE}.netplan --user-data tmp/${NODE}.cfg"
   uvt-kvm create ${NODE} --disk ${DISK} --memory ${RAMBYTES} --cpu ${CPU} --bridge br0 --network-config tmp/${NODE}.netplan --user-data tmp/${NODE}.cfg
 }
 

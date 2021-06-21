@@ -1,3 +1,4 @@
-nameserver 8.8.8.8
+nameserver 192.168.20.10
+nameserver 192.168.20.11
 options edns0
 search lunix.lan
